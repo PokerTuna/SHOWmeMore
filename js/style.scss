@@ -1,0 +1,49 @@
+$column: 12;
+$site-width: 1200px;
+$gutter: 10px;
+$mobile-up: "only screen and (min-width: 540px)";
+
+@mixin clear() {
+     &:before,
+     &:after {
+          content: "";
+          display: block;
+          clear: both;
+     }
+}
+
+* {
+     box-sizing: border-box;
+     margin: 0 auto;
+     border: '1px solid red';
+}
+
+.container {
+     margin: 0 auto;
+     width: 100%;
+     max-width: $site-width;
+
+     .row {
+          margin: $gutter 0;
+          @include clear();
+
+          [class*="col-"] {
+               float: left;
+               min-height: 1px;
+               width: 100%;
+          }
+
+          @for $i from 1 through $column {
+               .col-#{$i} {
+                    @media #{$mobile-up} {
+                         width: (100%/$column) * $i;
+                    }
+               }
+          }
+     }
+}
+
+.navigation, .footer {
+    height: '200px';
+    background-color: black;
+}
