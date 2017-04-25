@@ -1,5 +1,6 @@
 import React from 'react';
 import Show from './show.jsx';
+const TMDBLogo = 'https://www.themoviedb.org/assets/static_cache/27b65cb40d26f78354a4ac5abf87b2be/images/v4/logos/powered-by-rectangle-green.svg';
 
 export default class ShowApp extends React.Component {
     constructor(props) {
@@ -80,17 +81,22 @@ export default class ShowApp extends React.Component {
                        name={show.name}
                        score={show.vote_average}
                        onClick={this.handleRecommendClick.bind(this, show.id)}/>})
-        return (
-
-            <div className="container">
-                <div className="row">
-                    <div className="col-12 navigation">
-                        <form>
-                            <input onChange={this.handleInputChange.bind(this)} type="text" placeholder="Search Tv Show Title..."/>
-                            <button onClick={this.handleBtnClick.bind(this)}>Search</button>
-                        </form>
-                    </div>
+        return (<div>
+            <div className="header">
+                <div className="navigation">
+                <a href="#" title="ReactJS TMDb Movie Search"><img src={TMDBLogo} className="logo" alt="The Movie Database" /></a>
+                <form>
+                    <input className="searchBox" onChange={this.handleInputChange.bind(this)} type="text" placeholder="Search Tv Show..."/>
+                    <i className="fa fa-search" aria-hidden="true" onClick={this.handleBtnClick.bind(this)}></i>
+                </form>
                 </div>
+            </div>
+            <div className="container">
+                {/* <div className="row">
+                    <div className="col-12">
+
+                    </div>
+                </div> */}
                 <div className="row">
                     <div className="col-12">
                         {tv}
@@ -99,10 +105,13 @@ export default class ShowApp extends React.Component {
 
                     <div className="row">
                         <div className="col-12 footer">
+                            <a className="github" href="#" title="My GitHub Page">View Code </a>
+                            <i className="fa fa-github" aria-hidden="true"></i>
 
                         </div>
                     </div>
             </div>
+        </div>
         );
 
 
