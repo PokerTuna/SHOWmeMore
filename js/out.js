@@ -9739,7 +9739,7 @@ var ShowApp = function (_React$Component) {
                         { className: 'navigation' },
                         _react2.default.createElement(
                             'a',
-                            { href: '#', title: 'ReactJS TMDb Movie Search' },
+                            { href: 'https://www.themoviedb.org/', title: 'ReactJS TMDb Movie Search' },
                             _react2.default.createElement('img', { src: TMDBLogo, className: 'logo', alt: 'The Movie Database' })
                         ),
                         _react2.default.createElement(
