@@ -84,7 +84,7 @@ export default class ShowApp extends React.Component {
         return (<div>
             <div className="header">
                 <div className="navigation">
-                <a href="https://www.themoviedb.org/" title="ReactJS TMDb Movie Search"><img src={TMDBLogo} className="logo" alt="The Movie Database" /></a>
+                <a href="https://www.themoviedb.org/" target="_blank" title="ReactJS TMDb Movie Search"><img src={TMDBLogo} className="logo" alt="The Movie Database" /></a>
                 <form>
                     <input className="searchBox" onChange={this.handleInputChange.bind(this)} type="text" placeholder="Search Tv Show..."/>
                     <i className="fa fa-search" aria-hidden="true" onClick={this.handleBtnClick.bind(this)}></i>
