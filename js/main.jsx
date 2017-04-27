@@ -92,11 +92,6 @@ export default class ShowApp extends React.Component {
                 </div>
             </div>
             <div className="container">
-                {/* <div className="row">
-                    <div className="col-12">
-
-                    </div>
-                </div> */}
                 <div className="row">
                     <div className="col-12">
                         {tv}
@@ -105,7 +100,7 @@ export default class ShowApp extends React.Component {
 
                     <div className="row">
                         <div className="col-12 footer">
-                            <a className="github" href="#" title="My GitHub Page">View Code </a>
+                            <a className="github" target="_blank" href="https://github.com/PokerTuna/Watcher" title="Watcher Code on GitHub">View Code </a>
                             <i className="fa fa-github" aria-hidden="true"></i>
 
                         </div>

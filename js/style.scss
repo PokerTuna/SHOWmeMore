@@ -25,13 +25,14 @@ $tablet-up: 'only screen and (min-width: 768px)';
     max-width: $site-width;
 
     .row {
-        // margin: $gutter 0;
         @include clear();
 
         [class*="col-"] {
-            float: left;
             min-height: 1px;
             width: 100%;
+            @media #{$mobile-up} {
+                padding-left: 50px;
+            }
         }
         @for $i from 1 through $column {
             .col-#{$i} {
@@ -48,6 +49,8 @@ body {
     background-color: rgb(39, 41, 46);
     color: rgb(231, 232, 219);
     font-family: 'Abel', sans-serif;
+    overflow: scroll;
+    overflow-x: hidden;
 
      @media #{ $mobile-up} {
          background-image: url("../images/theatre.jpg");
@@ -58,14 +61,10 @@ body {
 }
 
 .fa-search:hover {
-    color: rgb(231, 232, 219);
-}
-.posterPic {
-    width: 100%;
-    padding-top: 65px;
     @media #{ $mobile-up} {
-        width: 32%;
+        color: rgb(231, 232, 219);
     }
+
 }
 
 .searchBox {
@@ -73,6 +72,22 @@ body {
     background: none;
     border-bottom: solid 1px white;
     border: none;
+}
+
+::-webkit-scrollbar
+{
+  width: 0;  /* for vertical scrollbars */
+  height: 0; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.0);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.0);
 }
 
 .header {
@@ -83,12 +98,11 @@ body {
     background-color: rgb(39, 41, 46);
     position: fixed;
     width: 100%;
+    z-index: 1;
 }
 .navigation {
     max-width: 1200px;
     width: 100%;
-
-
 }
 
 input[type=text] {
@@ -145,17 +159,73 @@ input {
 }
 
 
+//
+// .showWrapper {
+//     display: inline;
+// }
+// .showWrapper {
+//     position: relative;
+// }
+// .showInfo {
+//     width: 100%;
+//     height: 170px;
+//     overflow: scroll;
+//     overflow-x:hidden;
+//     padding: 8px;
+//     h1{
+//         font-size: 1.1em;
+//         line-height: 1.5em;
+//
+//     }
+// }
+//
+// .posterPic {
+//     width: 100%;
+//     @media #{ $mobile-up} {
+//         width: 32%;
+//     }
+//     padding: 65px 5px 0 5px;
+// }
 
+.showWrapper {
+  position: relative;
+  display: inline;
+  width: 100%;
+
+  @media #{ $mobile-up} {
+      width: 32%;
+  }
+}
+
+.posterPic {
+
+  width: 100%;
+  height: auto;
+  @media #{ $mobile-up} {
+      width: 32%;
+  }
+  transition: .5s ease;
+}
+.container .row .col-12 {
+    padding-top: 68px;
+}
 .showInfo {
-    width: 100%;
-    height: 170px;
-    overflow: scroll;
-    overflow-x:hidden;
-    padding: 8px;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  background-color: black;
+  overflow: scroll;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+  opacity: 0.7;
+}
 
-    h1{
-        font-size: 1.1em;
-        line-height: 1.5em;
+.showWrapper:hover .showInfo {
+  height: 20em;
+}
 
-    }
+.showWrapper:hover .posterPic {
+  opacity: 0.6;
 }
