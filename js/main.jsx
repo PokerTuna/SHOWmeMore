@@ -93,7 +93,7 @@ export default class ShowApp extends React.Component {
             </div>
             <div className="container">
                 <div className="row">
-                    <div className="col-12">
+                    <div className="col-12 app">
                         {tv}
                     </div>
                 </div>
