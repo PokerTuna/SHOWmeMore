@@ -6679,7 +6679,7 @@ module.exports = ReactNoopUpdateQueue;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -6697,64 +6697,69 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Show = function (_React$Component) {
-	_inherits(Show, _React$Component);
+    _inherits(Show, _React$Component);
 
-	function Show() {
-		_classCallCheck(this, Show);
+    function Show() {
+        _classCallCheck(this, Show);
 
-		return _possibleConstructorReturn(this, (Show.__proto__ || Object.getPrototypeOf(Show)).apply(this, arguments));
-	}
+        return _possibleConstructorReturn(this, (Show.__proto__ || Object.getPrototypeOf(Show)).apply(this, arguments));
+    }
 
-	_createClass(Show, [{
-		key: "render",
-		value: function render() {
-			return _react2.default.createElement(
-				"div",
-				{ className: "showWrapper" },
-				_react2.default.createElement("img", { className: "posterPic",
-					alt: "Show poster: {this.props.name}",
-					src: this.props.imgSrc,
-					onClick: this.props.onClick }),
-				_react2.default.createElement(
-					"div",
-					{ className: "showInfo" },
-					_react2.default.createElement(
-						"h1",
-						null,
-						"Title:"
-					),
-					_react2.default.createElement(
-						"p",
-						null,
-						this.props.name
-					),
-					_react2.default.createElement(
-						"h1",
-						null,
-						"Avg. score:"
-					),
-					_react2.default.createElement(
-						"p",
-						null,
-						this.props.score
-					),
-					_react2.default.createElement("br", null),
-					_react2.default.createElement(
-						"h1",
-						null,
-						"Overview:"
-					),
-					_react2.default.createElement(
-						"p",
-						null,
-						this.props.overview
-					)
-				)
-			);
-		}
-	}]);
+    _createClass(Show, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "showWrapper" },
+                _react2.default.createElement("img", { className: "posterPic", alt: "Show poster: {this.props.name}", src: this.props.imgSrc, onClick: this.props.onClick }),
+                _react2.default.createElement(
+                    "div",
+                    { className: "showInfo" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "title" },
+                        _react2.default.createElement(
+                            "h1",
+                            null,
+                            this.props.name
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "score" },
+                        _react2.default.createElement(
+                            "h2",
+                            null,
+                            "Avg. score:"
+                        ),
+                        _react2.default.createElement(
+                            "p",
+                            null,
+                            this.props.score,
+                            "/ 10"
+                        )
+                    ),
+                    _react2.default.createElement("br", null),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "overview" },
+                        _react2.default.createElement(
+                            "h2",
+                            null,
+                            "Overview:"
+                        ),
+                        _react2.default.createElement(
+                            "p",
+                            null,
+                            this.props.overview
+                        )
+                    )
+                )
+            );
+        }
+    }]);
 
-	return Show;
+    return Show;
 }(_react2.default.Component);
 
 exports.default = Show;
@@ -9637,20 +9642,23 @@ var ShowApp = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (ShowApp.__proto__ || Object.getPrototypeOf(ShowApp)).call(this, props));
 
         _this.handleInputChange = function (event) {
-            _this.setState({
-                inputField: event.target.value
-            });
+            _this.setState({ inputField: event.target.value });
         };
 
         _this.handleBtnClick = function (event) {
             event.preventDefault();
-            _this.upUrl();
-            _this.setState({
-                shows: []
-            });
+            _this.up_Url();
+            _this.setState({ shows: [] });
         };
 
-        _this.upUrl = function () {
+        _this.handleSuggestionClick = function (event) {
+            event.preventDefault();
+            _this.setState({ shows: [] });
+            var url = 'https://api.themoviedb.org/3/search/tv?api_key=df3c5710c44169cdf3776559c77f511a&query=' + event.target.id.split(' ').join('+');
+            _this.fetchShow(url);
+        };
+
+        _this.up_Url = function () {
             var url = 'https://api.themoviedb.org/3/search/tv?api_key=df3c5710c44169cdf3776559c77f511a&query=' + _this.state.inputField.split(' ').join('+');
             _this.fetchShow(url);
         };
@@ -9662,18 +9670,13 @@ var ShowApp = function (_React$Component) {
         };
 
         _this.state = {
-            inputField: 'legion',
+            inputField: '',
             shows: []
         };
         return _this;
     }
 
     _createClass(ShowApp, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            this.upUrl();
-        }
-    }, {
         key: 'fetchShow',
         value: function fetchShow(url) {
             var _this2 = this;
@@ -9684,9 +9687,7 @@ var ShowApp = function (_React$Component) {
                 var show = results.results[0];
                 var shows = _this2.state.shows;
                 shows.push(show);
-                _this2.setState({
-                    shows: shows
-                });
+                _this2.setState({ shows: shows });
             });
         }
     }, {
@@ -9708,9 +9709,7 @@ var ShowApp = function (_React$Component) {
                 var selectedRecommendations = recommendations.splice(index - 1, 3);
 
                 var shows = _this3.state.shows;
-                _this3.setState({
-                    shows: shows.concat(selectedRecommendations)
-                });
+                _this3.setState({ shows: shows.concat(selectedRecommendations) });
             });
         }
     }, {
@@ -9722,12 +9721,7 @@ var ShowApp = function (_React$Component) {
                 return Math.floor(Math.random() * 10000);
             }
             var tv = this.state.shows.map(function (show) {
-                return _react2.default.createElement(_show2.default, { key: show.id + Math.floor(Math.random() * 1000),
-                    imgSrc: 'https://image.tmdb.org/t/p/w500' + show.poster_path,
-                    overview: show.overview,
-                    name: show.name,
-                    score: show.vote_average,
-                    onClick: _this4.handleRecommendClick.bind(_this4, show.id) });
+                return _react2.default.createElement(_show2.default, { key: show.id + Math.floor(Math.random() * 1000), imgSrc: 'https://image.tmdb.org/t/p/w500' + show.poster_path, overview: show.overview, name: show.name, score: show.vote_average, onClick: _this4.handleRecommendClick.bind(_this4, show.id) });
             });
             return _react2.default.createElement(
                 'div',
@@ -9753,6 +9747,78 @@ var ShowApp = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'div',
+                    { className: 'container intro' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-12' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'info' },
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Welcome to',
+                                    _react2.default.createElement(
+                                        'span',
+                                        null,
+                                        ' SHOW'
+                                    ),
+                                    'me',
+                                    _react2.default.createElement(
+                                        'span',
+                                        null,
+                                        'More'
+                                    ),
+                                    '.',
+                                    _react2.default.createElement('br', null),
+                                    _react2.default.createElement('br', null),
+                                    _react2.default.createElement(
+                                        'span',
+                                        null,
+                                        ' SHOW'
+                                    ),
+                                    'me',
+                                    _react2.default.createElement(
+                                        'span',
+                                        null,
+                                        'More '
+                                    ),
+                                    'will help you find the best TV shows there are based on your favorite series. Just click on one of our suggestions or use the browser.'
+                                ),
+                                _react2.default.createElement('br', null),
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Happy hunting :)'
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'suggestions' },
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: '#', id: 'House of Cards', onClick: this.handleSuggestionClick.bind(this) },
+                                        'House of Cards'
+                                    ),
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: '#', id: 'Marvel\'s Jessica Jones', onClick: this.handleSuggestionClick.bind(this) },
+                                        'Marvel\'s Jessica Jones'
+                                    ),
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: '#', id: 'The Night Manager', onClick: this.handleSuggestionClick.bind(this) },
+                                        'The Night Manager'
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
                     { className: 'container' },
                     _react2.default.createElement(
                         'div',
@@ -9772,7 +9838,7 @@ var ShowApp = function (_React$Component) {
                             _react2.default.createElement(
                                 'a',
                                 { className: 'github', target: '_blank', href: 'https://github.com/PokerTuna/Watcher', title: 'Watcher Code on GitHub' },
-                                'View Code '
+                                'View Code'
                             ),
                             _react2.default.createElement('i', { className: 'fa fa-github', 'aria-hidden': 'true' })
                         )
@@ -11810,7 +11876,7 @@ exports = module.exports = __webpack_require__(89)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  box-sizing: border-box;\n  margin: 0 auto;\n  border: '1px solid red'; }\n\n.container {\n  margin: 0 auto;\n  width: 100%;\n  max-width: 1200px; }\n  .container .row:after, .container .row:before {\n    content: \"\";\n    display: block;\n    clear: both; }\n  .container .row [class*=\"col-\"] {\n    min-height: 1px;\n    width: 100%; }\n    @media only screen and (min-width: 540px) {\n      .container .row [class*=\"col-\"] {\n        padding-left: 50px; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-1 {\n      width: 8.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-2 {\n      width: 16.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-3 {\n      width: 25%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-4 {\n      width: 33.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-5 {\n      width: 41.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-6 {\n      width: 50%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-7 {\n      width: 58.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-8 {\n      width: 66.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-9 {\n      width: 75%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-10 {\n      width: 83.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-11 {\n      width: 91.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-12 {\n      width: 100%; } }\n\nbody {\n  background-color: #27292e;\n  color: #e7e8db;\n  font-family: 'Abel', sans-serif;\n  overflow: scroll;\n  overflow-x: hidden; }\n  @media only screen and (min-width: 540px) {\n    body {\n      background-image: url(" + __webpack_require__(104) + ");\n      background-attachment: fixed;\n      background-repeat: no-repeat;\n      background-size: cover; } }\n\n@media only screen and (min-width: 540px) {\n  .fa-search:hover {\n    color: #e7e8db; } }\n\n.searchBox {\n  color: #e7e8db;\n  background: none;\n  border-bottom: solid 1px white;\n  border: none; }\n\n::-webkit-scrollbar {\n  width: 0;\n  /* for vertical scrollbars */\n  height: 0;\n  /* for horizontal scrollbars */ }\n\n::-webkit-scrollbar-track {\n  background: transparent; }\n\n::-webkit-scrollbar-thumb {\n  background: transparent; }\n\n.header {\n  margin: 0 auto;\n  max-height: 60px;\n  line-height: 60px;\n  border-bottom: 2px solid #01d277;\n  background-color: #27292e;\n  position: fixed;\n  width: 100%;\n  z-index: 1; }\n\n.navigation {\n  max-width: 1200px;\n  width: 100%; }\n\ninput[type=text] {\n  width: 120px;\n  height: 2em;\n  transition: ease-in-out, width .50s ease-in-out; }\n\ninput[type=text]:focus {\n  width: 180px;\n  outline: none; }\n  @media only screen and (min-width: 768px) {\n    input[type=text]:focus {\n      width: 400px; } }\n\nform {\n  float: right;\n  margin: 0 6% 0 0;\n  color: #01d277; }\n  @media only screen and (min-width: 540px) {\n    form {\n      margin-left: 6%; } }\n\ninput {\n  width: 90%; }\n\n.logo {\n  width: 100%;\n  max-width: 100px;\n  margin: 10px 0 0 3%; }\n  @media only screen and (min-width: 540px) {\n    .logo {\n      margin-left: 6%; } }\n\n.footer {\n  width: 100%;\n  height: 50px;\n  padding: 5px;\n  text-align: center;\n  border-top: 1px solid #01d277;\n  font-family: 'Open Sans Condensed', sans-serif; }\n  .footer .github, .footer .fa-github {\n    text-decoration: none;\n    color: #007e47; }\n  .footer .github:hover {\n    color: #e7e8db; }\n\n.showWrapper {\n  position: relative;\n  display: inline;\n  width: 100%; }\n  @media only screen and (min-width: 540px) {\n    .showWrapper {\n      width: 32%; } }\n\n.posterPic {\n  width: 100%;\n  height: auto;\n  transition: .5s ease; }\n  @media only screen and (min-width: 540px) {\n    .posterPic {\n      width: 32%; } }\n\n.container .row .col-12 {\n  padding-top: 68px; }\n\n.showInfo {\n  position: absolute;\n  bottom: 5px;\n  left: 0;\n  right: 0;\n  background-color: black;\n  overflow: scroll;\n  width: 100%;\n  height: 0;\n  transition: .5s ease;\n  opacity: 0.7; }\n\n.showWrapper:hover .showInfo {\n  height: 10em; }\n\n.showWrapper:hover .posterPic {\n  opacity: 0.6; }\n", ""]);
+exports.push([module.i, "* {\n  box-sizing: border-box;\n  margin: 0 auto;\n  border: '1px solid red'; }\n\n.container {\n  margin: 0 auto;\n  width: 100%;\n  max-width: 1200px; }\n  .container .row:after, .container .row:before {\n    content: \"\";\n    display: block;\n    clear: both; }\n  .container .row [class*=\"col-\"] {\n    min-height: 1px;\n    width: 100%; }\n    @media only screen and (min-width: 540px) {\n      .container .row [class*=\"col-\"] {\n        padding-left: 50px; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-1 {\n      width: 8.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-2 {\n      width: 16.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-3 {\n      width: 25%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-4 {\n      width: 33.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-5 {\n      width: 41.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-6 {\n      width: 50%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-7 {\n      width: 58.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-8 {\n      width: 66.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-9 {\n      width: 75%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-10 {\n      width: 83.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-11 {\n      width: 91.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-12 {\n      width: 100%; } }\n\n.intro {\n  padding-top: 65px; }\n\nbody {\n  background-color: black;\n  color: #e7e8db;\n  font-family: 'Abel', sans-serif;\n  overflow: scroll;\n  overflow-x: hidden; }\n  @media only screen and (min-width: 540px) {\n    body {\n      background-image: url(" + __webpack_require__(104) + ");\n      background-attachment: fixed;\n      background-repeat: no-repeat;\n      background-size: cover; } }\n\n::-webkit-scrollbar {\n  width: 0;\n  /* for vertical scrollbars */\n  height: 0;\n  /* for horizontal scrollbars */ }\n\n::-webkit-scrollbar-track {\n  background: transparent; }\n\n::-webkit-scrollbar-thumb {\n  background: transparent; }\n\n.header {\n  margin: 0 auto;\n  max-height: 60px;\n  line-height: 60px;\n  border-bottom: 2px solid #01d277;\n  background-color: #27292e;\n  position: fixed;\n  width: 100%;\n  z-index: 1; }\n  .header .logo {\n    width: 100%;\n    max-width: 100px;\n    margin: 10px 0 0 3%; }\n    @media only screen and (min-width: 540px) {\n      .header .logo {\n        margin-left: 6%; } }\n  .header .navigation {\n    max-width: 1200px;\n    width: 100%; }\n    .header .navigation form {\n      float: right;\n      margin: 0 6% 0 0;\n      color: #01d277; }\n      @media only screen and (min-width: 540px) {\n        .header .navigation form {\n          margin-left: 6%; } }\n    @media only screen and (min-width: 540px) {\n      .header .navigation .fa-search:hover {\n        color: #e7e8db; } }\n    .header .navigation .searchBox {\n      color: #e7e8db;\n      background: none;\n      border-bottom: solid 1px white;\n      border: none; }\n\ninput[type=text] {\n  width: 120px;\n  height: 2em;\n  transition: ease-in-out, width 0.50s ease-in-out; }\n\ninput[type=text]:focus {\n  width: 180px;\n  outline: none; }\n  @media only screen and (min-width: 768px) {\n    input[type=text]:focus {\n      width: 400px; } }\n\n.showWrapper {\n  position: relative;\n  display: inline;\n  width: 100%; }\n  @media only screen and (min-width: 540px) {\n    .showWrapper {\n      width: 32%; } }\n\n.posterPic {\n  padding: 2%;\n  width: 100%;\n  height: auto;\n  transition: 0.5s ease; }\n  @media only screen and (min-width: 540px) {\n    .posterPic {\n      width: 32%; } }\n\n.showInfo {\n  padding: 2%; }\n  @media only screen and (min-width: 540px) {\n    .showInfo {\n      float: right;\n      position: absolute;\n      bottom: 5px;\n      left: 0;\n      right: 0;\n      background-color: black;\n      overflow: scroll;\n      width: 88%;\n      height: 0;\n      transition: 0.5s ease;\n      opacity: 0.7;\n      padding: 1%; } }\n  .showInfo h1 {\n    font-size: 2em; }\n  .showInfo h2 {\n    font-size: 1em; }\n  .showInfo div {\n    float: left; }\n  .showInfo .score {\n    width: 30%;\n    padding: 2% 0 0 2%; }\n  .showInfo .title {\n    width: 70%; }\n  .showInfo .score p {\n    color: #01d277; }\n  .showInfo .overview {\n    margin-top: 10%; }\n\n.info {\n  border: 1px solid #01d277;\n  background-color: #27292e;\n  border-radius: 5px;\n  margin: 2% 5%;\n  padding: 2% 4%;\n  text-align: center; }\n  .info span, .info a {\n    color: #01d277; }\n  .info .suggestions {\n    margin-top: 10px; }\n    .info .suggestions a {\n      display: inline-block;\n      padding: 5px;\n      margin: 0 5px;\n      text-decoration: none; }\n      @media only screen and (min-width: 540px) {\n        .info .suggestions a {\n          width: 20%; } }\n    @media only screen and (min-width: 540px) {\n      .info .suggestions a:hover {\n        color: #e7e8db; }\n      .info .suggestions a:after {\n        content: '';\n        display: block;\n        margin: auto;\n        height: 1px;\n        width: 0;\n        background: transparent;\n        transition: width 0.5s ease, background-color 0.5s ease; }\n      .info .suggestions a:hover:after {\n        width: 100%;\n        background: #01d277; } }\n\n.showWrapper:hover .showInfo {\n  height: 1000%; }\n\n.footer {\n  width: 100%;\n  height: 50px;\n  padding: 5px;\n  text-align: center;\n  border-top: 1px solid #01d277;\n  font-family: 'Open Sans Condensed', sans-serif; }\n  .footer .fa-github,\n  .footer .github {\n    text-decoration: none;\n    color: #007e47; }\n  .footer .github:hover {\n    color: #e7e8db; }\n", ""]);
 
 // exports
 

@@ -3,7 +3,6 @@ $site-width: 1200px;
 $gutter: 10px;
 $mobile-up: "only screen and (min-width: 540px)";
 $tablet-up: 'only screen and (min-width: 768px)';
-
 @mixin clear() {
     &:after,
     &:before {
@@ -43,72 +42,91 @@ $tablet-up: 'only screen and (min-width: 768px)';
         }
     }
 }
-$largeScreen: "only screen and (min-width: 600px)";
+
+.intro {
+    padding-top: 65px;
+}
 
 body {
-    background-color: rgb(39, 41, 46);
+    background-color: black;
     color: rgb(231, 232, 219);
     font-family: 'Abel', sans-serif;
     overflow: scroll;
     overflow-x: hidden;
-
-     @media #{ $mobile-up} {
-         background-image: url("../images/theatre.jpg");
-         background-attachment: fixed;
-         background-repeat: no-repeat;
-         background-size: cover;
-     }
-}
-
-.fa-search:hover {
     @media #{ $mobile-up} {
-        color: rgb(231, 232, 219);
+        background-image: url("../images/theatre.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
-
 }
 
-.searchBox {
-    color: rgb(231, 232, 219);
-    background: none;
-    border-bottom: solid 1px white;
-    border: none;
+::-webkit-scrollbar {
+    width: 0;
+    /* for vertical scrollbars */
+    height: 0;
+    /* for horizontal scrollbars */
 }
 
-::-webkit-scrollbar
-{
-  width: 0;  /* for vertical scrollbars */
-  height: 0; /* for horizontal scrollbars */
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.0);
 }
 
-::-webkit-scrollbar-track
-{
-  background: rgba(0, 0, 0, 0.0);
-}
-
-::-webkit-scrollbar-thumb
-{
-  background: rgba(0, 0, 0, 0.0);
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.0);
 }
 
 .header {
     margin: 0 auto;
     max-height: 60px;
     line-height: 60px;
-    border-bottom: 2px solid  rgb(1, 210, 119);
+    border-bottom: 2px solid rgb(1, 210, 119);
     background-color: rgb(39, 41, 46);
     position: fixed;
     width: 100%;
     z-index: 1;
-}
-.navigation {
-    max-width: 1200px;
-    width: 100%;
+
+    .logo {
+        width: 100%;
+        max-width: 100px;
+        margin: 10px 0 0 3%;
+        @media #{ $mobile-up} {
+            margin-left: 6%;
+        }
+    }
+
+    .navigation {
+        max-width: 1200px;
+        width: 100%;
+
+        form {
+            float: right;
+            margin: 0 6% 0 0;
+            color: rgb(1, 210, 119);
+            @media #{ $mobile-up} {
+                margin-left: 6%;
+            }
+        }
+
+        .fa-search:hover {
+            @media #{ $mobile-up} {
+                color: rgb(231, 232, 219);
+            }
+        }
+
+        .searchBox {
+            color: rgb(231, 232, 219);
+            background: none;
+            border-bottom: solid 1px white;
+            border: none;
+        }
+    }
 }
 
 input[type=text] {
     width: 120px;
     height: 2em;
-    transition: ease-in-out, width .50s ease-in-out;
+    transition: ease-in-out, width 0.50s ease-in-out;
 }
 
 input[type=text]:focus {
@@ -119,26 +137,122 @@ input[type=text]:focus {
     }
 }
 
-form {
-    float: right;
-    margin: 0 6% 0 0;
-    color: rgb(1, 210, 119);
-    @media #{ $mobile-up} {
-        margin-left: 6%;
-    }
-}
-
-input {
-    width: 90%;
-}
-
-.logo {
+.showWrapper {
+    position: relative;
+    display: inline;
     width: 100%;
-    max-width: 100px;
-    margin: 10px 0 0 3%;
     @media #{ $mobile-up} {
-        margin-left: 6%;
+        width: 32%;
     }
+}
+
+.posterPic {
+    padding: 2%;
+    width: 100%;
+    height: auto;
+    transition: 0.5s ease;
+    @media #{ $mobile-up} {
+        width: 32%;
+    }
+}
+
+.showInfo {
+    padding: 2%;
+    @media #{$mobile-up} {
+        float: right;
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        right: 0;
+        background-color: black;
+        overflow: scroll;
+        width: 88%;
+        height: 0;
+        transition: 0.5s ease;
+        opacity: 0.7;
+        padding: 1%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1em;
+    }
+
+    div {
+        float: left;
+    }
+
+    .score {
+        width: 30%;
+        padding: 2% 0 0 2%;
+    }
+
+    .title {
+        width: 70%;
+    }
+
+    .score p {
+        color: rgb(1, 210, 119);
+    }
+
+    .overview {
+        margin-top: 10%;
+    }
+}
+
+.info {
+    border: 1px solid rgb(1, 210, 119);
+    background-color: rgb(39, 41, 46);
+    border-radius: 5px;
+    margin: 2% 5%;
+    padding: 2% 4%;
+    text-align: center;
+
+    span, a {
+        color: rgb(1, 210, 119);
+    }
+
+    .suggestions {
+        margin-top: 10px;
+
+        a {
+            display: inline-block;
+            padding: 5px;
+            margin: 0 5px;
+            text-decoration: none;
+            @media #{$mobile-up} {
+                width: 20%;
+            }
+        }
+        @media #{$mobile-up} {
+            a:hover {
+                color: rgb(231, 232, 219);
+            }
+
+            a:after {
+                content: '';
+                display: block;
+                margin: auto;
+                height: 1px;
+                width: 0;
+                background: transparent;
+                transition: width 0.5s ease, background-color 0.5s ease;
+            }
+
+            a:hover:after {
+                width: 100%;
+                background: rgb(1, 210, 119);
+            }
+        }
+
+    }
+}
+
+.showWrapper:hover .showInfo {
+    height: 1000%;
 }
 
 .footer {
@@ -148,16 +262,17 @@ input {
     text-align: center;
     border-top: 1px solid rgb(1, 210, 119);
     font-family: 'Open Sans Condensed', sans-serif;
-        .github, .fa-github {
-            text-decoration: none;
-            color: #007e47;
-        }
-        .github:hover {
-            color: rgb(231, 232, 219);
-        }
+
+    .fa-github,
+    .github {
+        text-decoration: none;
+        color: #007e47;
+    }
+
+    .github:hover {
+        color: rgb(231, 232, 219);
+    }
 }
-
-
 //
 // .showWrapper {
 //     display: inline;
@@ -185,46 +300,3 @@ input {
 //     }
 //     padding: 65px 5px 0 5px;
 // }
-
-.showWrapper {
-  position: relative;
-  display: inline;
-  width: 100%;
-
-  @media #{ $mobile-up} {
-      width: 32%;
-  }
-}
-
-.posterPic {
-
-  width: 100%;
-  height: auto;
-  @media #{ $mobile-up} {
-      width: 32%;
-  }
-  transition: .5s ease;
-}
-.container .row .col-12{
-    padding-top: 68px;
-}
-.showInfo {
-  position: absolute;
-  bottom: 5px;
-  left: 0;
-  right: 0;
-  background-color: black;
-  overflow: scroll;
-  width: 100%;
-  height: 0;
-  transition: .5s ease;
-  opacity: 0.7;
-}
-
-.showWrapper:hover .showInfo {
-  height: 10em;
-}
-
-.showWrapper:hover .posterPic {
-  opacity: 0.6;
-}
