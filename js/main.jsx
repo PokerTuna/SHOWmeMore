@@ -15,6 +15,20 @@ export default class ShowApp extends React.Component {
     handleInputChange = (event) => {
         this.setState({inputField: event.target.value});
     }
+    handleKeyPress = (event) => {
+
+        if (event.charCode == 13) {
+            event.preventDefault();
+            this.up_Url();
+            this.setState({shows: []})
+      }
+      if (event.keyCode == 13) {
+          event.preventDefault();
+          this.up_Url();
+          this.setState({shows: []})
+      }
+
+    }
 
 
     handleBtnClick = (event) => {
@@ -79,7 +93,7 @@ export default class ShowApp extends React.Component {
                 <div className="header">
                     <div className="navigation">
                         <a href="https://www.themoviedb.org/" target="_blank" title="ReactJS TMDb Movie Search"><img src={TMDBLogo} className="logo" alt="The Movie Database"/></a>
-                        <form>
+                        <form onKeyPress={this.handleKeyPress}>
                             <input className="searchBox" onChange={this.handleInputChange.bind(this)} type="text" placeholder="Search Tv Show..."/>
                             <i className="fa fa-search" aria-hidden="true" onClick={this.handleBtnClick.bind(this)}></i>
                         </form>
@@ -92,7 +106,7 @@ export default class ShowApp extends React.Component {
                                 <p>Welcome to
                                     <span> SHOW</span>me<span>More</span>.<br/><br/>
                                     <span> SHOW</span>me<span>More </span>
-                                    will help you find the best TV shows there are based on your favorite series. Just click on one of our suggestions or use the browser.
+                                    will help you find the best TV shows there are based on your favorite series. Just click on one of our suggestions or use the browser. Then, just click on the poster and start discovering new shows!
                                 </p><br/>
                                 <p>Happy hunting :)</p>
                                 <div className="suggestions">
