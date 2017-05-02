@@ -16,7 +16,7 @@ Key tools used in this ReactJS project are:
 * [SASS](http://sass-lang.com/)
 
 ## Possible improvements/ further development
-For such a simple app such as SHOWmeMore, it has some great potential. Nevertheless, those are my ideas for current improvements and further development:
+Those are my ideas for current improvements and further development:
 
 * Improving styling
 * Fetch API support for older browsers
