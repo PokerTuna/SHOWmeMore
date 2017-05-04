@@ -1,5 +1,5 @@
 ## SHOWmeMore
-https://github.com/PokerTuna/SHOWmeMore
+https://pokertuna.github.io/SHOWmeMore/
 
 ## Description
 SHOWmeMore is a responsive [ReactJS](http://facebook.github.io/react/index.html) web app that lets it's user find new tv shows.
