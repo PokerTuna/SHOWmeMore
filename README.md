@@ -29,4 +29,4 @@ Those are my ideas for current improvements and further development:
 * Notifications for when the next episode airs
 
 ## Acknowledgements
-If it wasn't for the TMDb, this app might not have been. SHOWmeMore works on the [TMDb](https://www.themoviedb.org/) API, which has been of great help. It's discover method is the backbone of the recommendations.
+SHOWmeMore works on the [TMDb](https://www.themoviedb.org/) API, which has been of great help.
