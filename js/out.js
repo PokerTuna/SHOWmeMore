@@ -9623,6 +9623,10 @@ var _show = __webpack_require__(51);
 
 var _show2 = _interopRequireDefault(_show);
 
+var _scroll = __webpack_require__(194);
+
+var _scroll2 = _interopRequireDefault(_scroll);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9854,10 +9858,12 @@ var ShowApp = function (_React$Component) {
                                 { className: 'github', target: '_blank', href: 'https://github.com/PokerTuna/Watcher', title: 'Watcher Code on GitHub' },
                                 'View Code'
                             ),
+                            ' \xA0',
                             _react2.default.createElement('i', { className: 'fa fa-github', 'aria-hidden': 'true' })
                         )
                     )
-                )
+                ),
+                _react2.default.createElement(_scroll2.default, { scrollStepInPx: '50', delayInMs: '15' })
             );
         }
     }]);
@@ -11890,7 +11896,7 @@ exports = module.exports = __webpack_require__(89)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  box-sizing: border-box;\n  margin: 0 auto;\n  border: '1px solid red'; }\n\n.container {\n  margin: 0 auto;\n  width: 100%;\n  max-width: 1200px; }\n  .container .row:after, .container .row:before {\n    content: \"\";\n    display: block;\n    clear: both; }\n  .container .row [class*=\"col-\"] {\n    min-height: 1px;\n    width: 100%; }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-1 {\n      width: 8.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-2 {\n      width: 16.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-3 {\n      width: 25%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-4 {\n      width: 33.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-5 {\n      width: 41.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-6 {\n      width: 50%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-7 {\n      width: 58.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-8 {\n      width: 66.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-9 {\n      width: 75%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-10 {\n      width: 83.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-11 {\n      width: 91.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-12 {\n      width: 100%; } }\n\n.intro {\n  padding-top: 65px; }\n\nbody {\n  background-color: black;\n  color: #e7e8db;\n  font-family: 'Abel', sans-serif;\n  overflow: scroll;\n  overflow-x: hidden; }\n\n::-webkit-scrollbar {\n  width: 0;\n  /* for vertical scrollbars */\n  height: 0;\n  /* for horizontal scrollbars */ }\n\n::-webkit-scrollbar-track {\n  background: transparent; }\n\n::-webkit-scrollbar-thumb {\n  background: transparent; }\n\n.header {\n  margin: 0 auto;\n  max-height: 60px;\n  line-height: 60px;\n  border-bottom: 2px solid #01d277;\n  background-color: #27292e;\n  position: fixed;\n  width: 100%;\n  z-index: 2; }\n  .header .logo {\n    width: 100%;\n    max-width: 100px;\n    margin: 10px 0 0 3%; }\n    @media only screen and (min-width: 540px) {\n      .header .logo {\n        margin-left: 6%; } }\n  .header .navigation {\n    max-width: 1200px;\n    width: 100%; }\n    .header .navigation form {\n      float: right;\n      margin: 0 6% 0 0;\n      color: #01d277; }\n      @media only screen and (min-width: 540px) {\n        .header .navigation form {\n          margin-left: 6%; } }\n    @media only screen and (min-width: 540px) {\n      .header .navigation .fa-search:hover {\n        color: #e7e8db; } }\n    .header .navigation .searchBox {\n      color: #e7e8db;\n      background: none;\n      border-bottom: solid 1px white;\n      border: none; }\n\ninput[type=text] {\n  width: 120px;\n  height: 2em;\n  transition: ease-in-out, width 0.50s ease-in-out; }\n\ninput[type=text]:focus {\n  width: 180px;\n  outline: none; }\n  @media only screen and (min-width: 768px) {\n    input[type=text]:focus {\n      width: 400px; } }\n\n.showWrapper {\n  width: 100%;\n  padding: 2%;\n  position: relative;\n  display: inline-block; }\n  @media only screen and (min-width: 540px) {\n    .showWrapper {\n      width: 50%;\n      overflow: scroll; } }\n\n.posterPic {\n  opacity: 1;\n  display: block;\n  position: relative;\n  width: 100%;\n  height: auto;\n  transition: 0.5s ease;\n  backface-visibility: hidden; }\n\n.showInfo {\n  transition: 0.8s ease;\n  opacity: 1;\n  position: relative;\n  top: 2.5%;\n  padding: 10% 5% 0;\n  background-color: black;\n  overflow: scroll; }\n  @media only screen and (min-width: 540px) {\n    .showInfo {\n      margin-right: 4%;\n      position: absolute;\n      opacity: 0;\n      padding: 10% 5% 0;\n      height: 95%;\n      overflow: scroll; } }\n  .showInfo h1 {\n    font-size: 2em; }\n  .showInfo h2 {\n    font-size: 1em; }\n  .showInfo div {\n    float: left; }\n  .showInfo .score {\n    width: 40%;\n    padding: 2% 0 0 2%; }\n  .showInfo .title {\n    width: 60%; }\n  .showInfo .score p {\n    color: #01d277;\n    font-size: 2em;\n    font-weight: bold; }\n  .showInfo .overview {\n    margin-top: 10%; }\n    .showInfo .overview p {\n      font-size: 1.5em; }\n\n@media only screen and (min-width: 540px) {\n  .showWrapper:hover .posterPic {\n    opacity: 0.3; } }\n\n.showWrapper:hover .showInfo {\n  opacity: 0.6; }\n\n.info {\n  border: 1px solid #01d277;\n  background-color: #27292e;\n  border-radius: 5px;\n  margin: 2% 5%;\n  padding: 2% 4%;\n  text-align: center; }\n  .info a,\n  .info span {\n    color: #01d277; }\n  .info .suggestions {\n    margin-top: 10px; }\n    .info .suggestions a {\n      display: inline-block;\n      padding: 5px;\n      margin: 0 5px;\n      text-decoration: none; }\n      @media only screen and (min-width: 540px) {\n        .info .suggestions a {\n          width: 20%; } }\n    @media only screen and (min-width: 540px) {\n      .info .suggestions a:hover {\n        color: #e7e8db; }\n      .info .suggestions a:after {\n        content: '';\n        display: block;\n        margin: auto;\n        height: 1px;\n        width: 0;\n        background: transparent;\n        transition: width 0.5s ease, background-color 0.5s ease; }\n      .info .suggestions a:hover:after {\n        width: 100%;\n        background: #01d277; } }\n\n.footer {\n  width: 100%;\n  height: 50px;\n  padding: 5px;\n  text-align: center;\n  border-top: 1px solid #01d277;\n  font-family: 'Open Sans Condensed', sans-serif; }\n  .footer .fa-github,\n  .footer .github {\n    text-decoration: none;\n    color: #007e47; }\n  .footer .github:hover {\n    color: #e7e8db; }\n", ""]);
+exports.push([module.i, "* {\n  box-sizing: border-box;\n  margin: 0 auto; }\n\n.container {\n  margin: 0 auto;\n  width: 100%;\n  max-width: 1200px; }\n  .container .row:after, .container .row:before {\n    content: \"\";\n    display: block;\n    clear: both; }\n  .container .row [class*=\"col-\"] {\n    min-height: 1px;\n    width: 100%; }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-1 {\n      width: 8.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-2 {\n      width: 16.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-3 {\n      width: 25%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-4 {\n      width: 33.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-5 {\n      width: 41.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-6 {\n      width: 50%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-7 {\n      width: 58.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-8 {\n      width: 66.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-9 {\n      width: 75%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-10 {\n      width: 83.33333%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-11 {\n      width: 91.66667%; } }\n  @media only screen and (min-width: 540px) {\n    .container .row .col-12 {\n      width: 100%; } }\n\nbody {\n  background-color: black;\n  color: #e7e8db;\n  font-family: 'Abel', sans-serif;\n  overflow: scroll;\n  overflow-x: hidden; }\n\n::-webkit-scrollbar {\n  width: 0;\n  /* for vertical scrollbars */\n  height: 0;\n  /* for horizontal scrollbars */ }\n\n::-webkit-scrollbar-track {\n  background: transparent; }\n\n::-webkit-scrollbar-thumb {\n  background: transparent; }\n\n.header {\n  margin: 0 auto;\n  max-height: 60px;\n  line-height: 60px;\n  border-bottom: 2px solid #01d277;\n  background-color: #27292e;\n  position: fixed;\n  width: 100%;\n  z-index: 2; }\n  .header .logo {\n    width: 100%;\n    max-width: 100px;\n    margin: 10px 0 0 3%; }\n    @media only screen and (min-width: 540px) {\n      .header .logo {\n        margin-left: 6%; } }\n  .header .navigation {\n    max-width: 1200px;\n    width: 100%; }\n    .header .navigation form {\n      float: right;\n      margin: 0 6% 0 0;\n      color: #01d277; }\n      @media only screen and (min-width: 540px) {\n        .header .navigation form {\n          margin-left: 6%; } }\n    @media only screen and (min-width: 540px) {\n      .header .navigation .fa-search:hover {\n        color: #e7e8db; } }\n    .header .navigation .searchBox {\n      color: #e7e8db;\n      background: none;\n      border-bottom: solid 1px white;\n      border: none; }\n\ninput[type=text] {\n  width: 120px;\n  height: 2em;\n  transition: ease-in-out, width 0.50s ease-in-out; }\n\ninput[type=text]:focus {\n  width: 160px;\n  outline: none; }\n  @media only screen and (min-width: 768px) {\n    input[type=text]:focus {\n      width: 400px; } }\n\n.intro {\n  padding-top: 65px; }\n\n.app {\n  display: flex;\n  flex-wrap: wrap; }\n\n.showWrapper {\n  width: 100%;\n  padding: 2%;\n  position: relative;\n  display: inline-block; }\n  @media only screen and (min-width: 540px) {\n    .showWrapper {\n      width: 50%;\n      overflow: scroll; } }\n\n.posterPic {\n  opacity: 1;\n  display: block;\n  position: relative;\n  width: 100%;\n  height: auto;\n  transition: 0.5s ease;\n  backface-visibility: hidden; }\n\n.showInfo {\n  transition: 0.8s ease;\n  opacity: 1;\n  top: 2.5%;\n  padding: 10% 5% 0;\n  background-color: black;\n  overflow: scroll; }\n  @media only screen and (min-width: 540px) {\n    .showInfo {\n      margin-right: 4%;\n      position: absolute;\n      opacity: 0;\n      padding: 10% 5% 0;\n      height: 95%;\n      overflow: scroll; } }\n  .showInfo h1 {\n    font-size: 2em; }\n  .showInfo h2 {\n    font-size: 1em; }\n  .showInfo div {\n    float: left; }\n  .showInfo .score {\n    width: 40%;\n    padding: 2% 0 0 2%; }\n  .showInfo .title {\n    width: 60%; }\n  .showInfo .score p {\n    color: #01d277;\n    font-size: 2em;\n    font-weight: bold; }\n  .showInfo .overview {\n    margin-top: 10%; }\n    .showInfo .overview p {\n      font-size: 1.2em; }\n\n@media only screen and (min-width: 540px) {\n  .showWrapper:hover .posterPic {\n    opacity: 0.3; } }\n\n.showWrapper:hover .showInfo {\n  opacity: 0.6; }\n\n.info {\n  border: 1px solid #01d277;\n  background-color: #27292e;\n  border-radius: 5px;\n  margin: 2% 5%;\n  padding: 2% 4%;\n  text-align: center; }\n  .info a,\n  .info span {\n    color: #01d277; }\n  .info .suggestions {\n    margin-top: 10px; }\n    .info .suggestions a {\n      display: inline-block;\n      padding: 5px;\n      margin: 0 5px;\n      text-decoration: none; }\n      @media only screen and (min-width: 540px) {\n        .info .suggestions a {\n          width: 20%; } }\n    @media only screen and (min-width: 540px) {\n      .info .suggestions a:hover {\n        color: #e7e8db; }\n      .info .suggestions a:after {\n        content: '';\n        display: block;\n        margin: auto;\n        height: 1px;\n        width: 0;\n        background: transparent;\n        transition: width 0.5s ease, background-color 0.5s ease; }\n      .info .suggestions a:hover:after {\n        width: 100%;\n        background: #01d277; } }\n\n.footer {\n  width: 100%;\n  height: 50px;\n  padding: 5px;\n  text-align: center;\n  border-top: 1px solid #01d277;\n  font-family: 'Open Sans Condensed', sans-serif;\n  font-weight: bold; }\n  .footer .fa-github,\n  .footer .github {\n    text-decoration: none;\n    color: #007e47; }\n  .footer .github:hover {\n    color: #e7e8db; }\n\n.scroll {\n  opacity: 0.5;\n  color: #007e47;\n  width: 40px;\n  height: 40px;\n  position: fixed;\n  bottom: 5px;\n  right: 5px; }\n  @media only screen and (min-width: 540px) {\n    .scroll {\n      opacity: 0.5;\n      bottom: 5px;\n      right: 15px; }\n      .scroll:hover {\n        opacity: 0.8;\n        color: #e7e8db; } }\n", ""]);
 
 // exports
 
@@ -24948,6 +24954,79 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+/* 194 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ScrollButton = function (_React$Component) {
+  _inherits(ScrollButton, _React$Component);
+
+  function ScrollButton() {
+    _classCallCheck(this, ScrollButton);
+
+    var _this = _possibleConstructorReturn(this, (ScrollButton.__proto__ || Object.getPrototypeOf(ScrollButton)).call(this));
+
+    _this.state = {
+      intervalId: 0
+    };
+    return _this;
+  }
+
+  _createClass(ScrollButton, [{
+    key: "scrollStep",
+    value: function scrollStep() {
+      if (window.pageYOffset === 0) {
+        clearInterval(this.state.intervalId);
+      }
+      window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
+    }
+  }, {
+    key: "scrollToTop",
+    value: function scrollToTop() {
+      var intervalId = setInterval(this.scrollStep.bind(this), this.props.delayInMs);
+      this.setState({ intervalId: intervalId });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        "a",
+        null,
+        _react2.default.createElement("i", { className: "fa fa-arrow-up scroll fa-2x", "aria-hidden": "true", onClick: function onClick() {
+            _this2.scrollToTop();
+          } })
+      );
+    }
+  }]);
+
+  return ScrollButton;
+}(_react2.default.Component);
+
+exports.default = ScrollButton;
 
 /***/ })
 /******/ ]);

@@ -1,5 +1,6 @@
 import React from 'react';
 import Show from './show.jsx';
+import ScrollButton from './scroll.jsx';
 const TMDBLogo = 'https://www.themoviedb.org/assets/static_cache/27b65cb40d26f78354a4ac5abf87b2be/images/v4/logos/powered-by-rectangle-green.svg';
 
 export default class ShowApp extends React.Component {
@@ -128,12 +129,13 @@ export default class ShowApp extends React.Component {
                     <div className="row">
                         <div className="col-12 footer">
                             <a className="github" target="_blank" href="https://github.com/PokerTuna/Watcher" title="Watcher Code on GitHub">View Code
-                            </a>
+                        </a> &nbsp;
                             <i className="fa fa-github" aria-hidden="true"></i>
 
                         </div>
                     </div>
                 </div>
+                <ScrollButton scrollStepInPx="50" delayInMs="15"/>
             </div>
         );
 

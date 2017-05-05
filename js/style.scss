@@ -15,7 +15,6 @@ $tablet-up: 'only screen and (min-width: 768px)';
 * {
     box-sizing: border-box;
     margin: 0 auto;
-    border: '1px solid red';
 }
 
 .container {
@@ -29,7 +28,6 @@ $tablet-up: 'only screen and (min-width: 768px)';
         [class*="col-"] {
             min-height: 1px;
             width: 100%;
-            
         }
         @for $i from 1 through $column {
             .col-#{$i} {
@@ -39,10 +37,6 @@ $tablet-up: 'only screen and (min-width: 768px)';
             }
         }
     }
-}
-
-.intro {
-    padding-top: 65px;
 }
 
 body {
@@ -122,11 +116,20 @@ input[type=text] {
 }
 
 input[type=text]:focus {
-    width: 180px;
+    width: 160px;
     outline: none;
     @media #{ $tablet-up} {
         width: 400px;
     }
+}
+
+.intro {
+    padding-top: 65px;
+}
+
+.app {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .showWrapper {
@@ -136,7 +139,7 @@ input[type=text]:focus {
     display: inline-block;
     @media #{$mobile-up} {
         width: 50%;
-        overflow:scroll;
+        overflow: scroll;
     }
 }
 
@@ -153,7 +156,6 @@ input[type=text]:focus {
 .showInfo {
     transition: 0.8s ease;
     opacity: 1;
-    position: relative;
     top: 2.5%;
     padding: 10% 5% 0;
     background-color: black;
@@ -164,7 +166,7 @@ input[type=text]:focus {
         opacity: 0;
         padding: 10% 5% 0;
         height: 95%;
-        overflow:scroll;
+        overflow: scroll;
     }
 
     h1 {
@@ -196,15 +198,16 @@ input[type=text]:focus {
 
     .overview {
         margin-top: 10%;
+
         p {
-            font-size: 1.5em;
+            font-size: 1.2em;
         }
     }
 }
 
 .showWrapper:hover .posterPic {
     @media #{$mobile-up} {
-    opacity: 0.3;
+        opacity: 0.3;
     }
 }
 
@@ -267,6 +270,7 @@ input[type=text]:focus {
     text-align: center;
     border-top: 1px solid rgb(1, 210, 119);
     font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
 
     .fa-github,
     .github {
@@ -277,4 +281,23 @@ input[type=text]:focus {
     .github:hover {
         color: rgb(231, 232, 219);
     }
+}
+
+.scroll {
+  opacity: 0.5;
+  color: #007e47;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  @media #{$mobile-up} {
+      opacity: 0.5;
+      bottom: 5px;
+      right: 15px;
+      &:hover {
+        opacity: 0.8;
+        color: rgb(231, 232, 219);
+      }
+  }
 }
