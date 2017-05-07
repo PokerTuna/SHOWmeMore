@@ -1,6 +1,9 @@
 import React from 'react';
 import Show from './show.jsx';
 import ScrollButton from './scroll.jsx';
+import NoShow from './noshow.jsx';
+import Info from './info.jsx';
+
 const TMDBLogo = 'https://www.themoviedb.org/assets/static_cache/27b65cb40d26f78354a4ac5abf87b2be/images/v4/logos/powered-by-rectangle-green.svg';
 
 export default class ShowApp extends React.Component {
@@ -9,7 +12,7 @@ export default class ShowApp extends React.Component {
 
         this.state = {
             inputField: '',
-            shows: []
+            shows: ["start"]
         }
     }
 
@@ -22,15 +25,8 @@ export default class ShowApp extends React.Component {
             event.preventDefault();
             this.up_Url();
             this.setState({shows: []})
-      }
-      if (event.keyCode == 13) {
-          event.preventDefault();
-          this.up_Url();
-          this.setState({shows: []})
-      }
-
+        }
     }
-
 
     handleBtnClick = (event) => {
         event.preventDefault();
@@ -61,6 +57,7 @@ export default class ShowApp extends React.Component {
             let shows = this.state.shows;
             shows.push(show);
             this.setState({shows: shows})
+
         })
     }
 
@@ -83,12 +80,17 @@ export default class ShowApp extends React.Component {
     }
 
     render() {
-        function getRandomKey() {
-            return Math.floor(Math.random() * 10000);
+        let tv;
+        if(this.state.shows[0]===undefined){
+            tv = <NoShow />
+        }else if(this.state.shows=="start"){
+            console.log("App is up and running");
+        }else{
+            tv = this.state.shows.map((show) => {
+                return <Show key={show.id + Math.floor(Math.random() * 1000)} imgSrc={`https://image.tmdb.org/t/p/w500${show.poster_path}`} overview={show.overview} name={show.name} score={show.vote_average} onClick={this.handleRecommendClick.bind(this, show.id)}/>
+            })
         }
-        const tv = this.state.shows.map((show) => {
-            return <Show key={show.id + Math.floor(Math.random() * 1000)} imgSrc={`https://image.tmdb.org/t/p/w500${show.poster_path}`} overview={show.overview} name={show.name} score={show.vote_average} onClick={this.handleRecommendClick.bind(this, show.id)}/>
-        })
+
         return (
             <div>
                 <div className="header">
@@ -103,19 +105,7 @@ export default class ShowApp extends React.Component {
                 <div className="container intro">
                     <div className="row">
                         <div className="col-12">
-                            <div className="info">
-                                <p>Welcome to
-                                    <span> SHOW</span>me<span>More</span>.<br/><br/>
-                                    <span> SHOW</span>me<span>More </span>
-                                    will help you find the best TV shows there are based on your favorite series. Just click on one of our suggestions or use the browser. Then, just click on the poster and start discovering new shows!
-                                </p><br/>
-                                <p>Happy hunting :)</p>
-                                <div className="suggestions">
-                                    <a href="#" id="House of Cards" onClick={this.handleSuggestionClick.bind(this)}>House of Cards</a>
-                                    <a href="#" id="Marvel's Jessica Jones" onClick={this.handleSuggestionClick.bind(this)}>Marvel's Jessica Jones</a>
-                                    <a href="#" id="The Night Manager" onClick={this.handleSuggestionClick.bind(this)}>The Night Manager</a>
-                                </div>
-                            </div>
+                            <Info onClick={this.handleSuggestionClick.bind(this)}/>
                         </div>
                     </div>
                 </div>
@@ -129,7 +119,8 @@ export default class ShowApp extends React.Component {
                     <div className="row">
                         <div className="col-12 footer">
                             <a className="github" target="_blank" href="https://github.com/PokerTuna/Watcher" title="Watcher Code on GitHub">View Code
-                        </a> &nbsp;
+                            </a>
+                            &nbsp;
                             <i className="fa fa-github" aria-hidden="true"></i>
 
                         </div>
