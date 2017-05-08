@@ -11,16 +11,18 @@ export default class ShowApp extends React.Component {
         super(props)
 
         this.state = {
-            inputField: '',
+            inputField: 'westworld',
             shows: ["start"]
         }
     }
-
+    componentDidMount(){
+      this.handleBtnClick();
+    }
     handleInputChange = (event) => {
         this.setState({inputField: event.target.value});
     }
-    handleKeyPress = (event) => {
 
+    handleKeyPress = (event) => {
         if (event.charCode == 13) {
             event.preventDefault();
             this.up_Url();
@@ -29,10 +31,11 @@ export default class ShowApp extends React.Component {
     }
 
     handleBtnClick = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         this.up_Url();
         this.setState({shows: []})
     }
+
     handleSuggestionClick = (event) => {
         event.preventDefault();
         this.setState({shows: []})
