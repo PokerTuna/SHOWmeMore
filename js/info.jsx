@@ -5,11 +5,11 @@ export default class Info extends React.Component {
       return <div className="info">
           <p>Welcome to
               <span>
-                  SHOW</span>me<span>More</span>.<br/><br/>
+                  &nbsp;SHOW</span>me<span>More</span>.<br/><br/>
               <span>
-                  SHOW</span>me<span>More
+                  SHOW</span>me<span>More&nbsp;
               </span>
-              will help you find the best TV shows there are based on your favorite series. Just click on one of our suggestions or use the browser. Then, just click on the poster and start discovering new shows! 
+              will help you find the best TV shows there are based on your favorite series. Just click on one of our suggestions or use the browser. Then, click on the poster and start discovering new shows!
           </p><br/>
           <p>Happy hunting :)</p>
           <div className="suggestions">
