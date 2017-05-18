@@ -19,7 +19,7 @@ Key tools used in this ReactJS project are:
 Those are my ideas for current improvements and further development:
 
 * Improving styling
-* Fetch API support for older browsers
+* Fetch API support for older browsers (mainly IE)
 * More RWD breakpoints
 * SHOWmeMore logo
 

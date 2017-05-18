@@ -140,6 +140,8 @@ input[type=text]:focus {
     @media #{$mobile-up} {
         width: 50%;
         overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: hidden;
     }
 }
 
@@ -167,6 +169,8 @@ input[type=text]:focus {
         padding: 10% 5% 0;
         height: 95%;
         overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: hidden;
         cursor: pointer;
     }
 
